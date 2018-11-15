@@ -1,0 +1,69 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Lead</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+</head>
+<body>
+<div th:replace="Home :: header"></div>
+<div class="container topMargin">
+    <h2>Lead</h2>
+    <table class="table">
+        <tbody>
+        <tr>
+            <td>ID</td>
+            <td><span th:text="${lead.id}">ID</span></td>
+        </tr>
+        <tr>
+            <td>Name</td>
+            <td><span th:text="${lead.name}">Name</span></td>
+        </tr>
+        <tr>
+            <td>Surname</td>
+            <td><span th:text="${lead.surname}">Surname</span></td>
+        </tr>
+        <tr>
+            <td>Born</td>
+            <td><span th:text="${lead.born}">Born</span></td>
+        </tr>
+        <tr>
+            <td>Email</td>
+            <td><span th:text="${lead.email}">Email</span></td>
+        </tr>
+        <tr>
+            <td>Phone</td>
+            <td><span th:text="${lead.phone}">Phone</span></td>
+        </tr>
+        <tr>
+            <td>City</td>
+            <td><span th:text="${lead.address?.city}">City</span></td>
+        </tr>
+        <tr>
+            <td>Street</td>
+            <td><span th:text="${lead.address?.street}">Street</span></td>
+        </tr>
+        <tr>
+            <td>Number</td>
+            <td><span th:text="${lead.address?.number}">Number</span></td>
+        </tr>
+        <tr>
+            <td>Postal Code</td>
+            <td><span th:text="${lead.address?.postalCode}">Postal Code</span></td>
+        </tr>
+        </tbody>
+    </table>
+
+    <div class="container">
+        <span class="leftMargin">
+            <a class="btn btn-primary" th:href="'/leads/'+${lead.id}+'/edit'">Edit</a>
+        </span>
+        <span class="leftMargin">
+            <a class="btn btn-primary" href="/leads/create">Create New Lead</a>
+        </span>
+    </div>
+</div>
+</body>
+</html>

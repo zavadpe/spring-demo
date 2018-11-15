@@ -1,0 +1,57 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>All Leads</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+</head>
+<body>
+<div th:replace="Home :: header"></div>
+<div class="container topMargin" th:fragment="leads">
+    <h2>All Leads</h2>
+    <table class="table">
+        <thead>
+        <tr>
+            <th> ID</th>
+            <th> Name</th>
+            <th> Surname</th>
+            <th> Born</th>
+            <th> Email</th>
+            <th> Phone</th>
+            <th> City</th>
+            <th> Street</th>
+            <th> Number</th>
+            <th> Postal Code</th>
+            <th colspan="2"> Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:if="${leads.empty}">
+            <td colspan="2"> No Leads Available</td>
+        </tr>
+        <tr th:each="lead : ${leads}">
+            <td><span th:text="${lead.id}"> ID </span></td>
+            <td><span th:text="${lead.name}"> Name </span></td>
+            <td><span th:text="${lead.surname}"> Surname </span></td>
+            <td><span th:text="${lead.born}"> Born </span></td>
+            <td><span th:text="${lead.email}"> Surname </span></td>
+            <td><span th:text="${lead.phone}"> Surname </span></td>
+            <td><span th:text="${lead.address?.city}"> City </span></td>
+            <td><span th:text="${lead.address?.street}"> Street </span></td>
+            <td><span th:text="${lead.address?.number}"> Number </span></td>
+            <td><span th:text="${lead.address?.postalCode}"> Postal Code </span></td>
+            <td><a class="btn btn-link" th:href="'/leads/'+${lead.id}">Show</a></td>
+            <td><a class="btn btn-link" th:href="'/leads/'+${lead.id}+'/edit'">Edit</a></td>
+        </tr>
+        </tbody>
+    </table>
+    <div class="container bottomMargin">
+        <div>
+            <a class="btn btn-link" href="/leads/create">Create Lead</a>
+        </div>
+    </div>
+</div>
+</body>
+</html>

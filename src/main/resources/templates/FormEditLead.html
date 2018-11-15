@@ -1,0 +1,58 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Edit new Lead</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+<div th:replace="Home :: header"></div>
+<div class="container topMargin">
+<h2>Edit Lead</h2>
+    <form action="#" th:action="@{/leads/__${lead.id}__/edit}" th:object="${lead}" method="post">
+        <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" class="form-control" id="name" placeholder="Enter first name" th:field="*{name}">
+        </div>
+        <div class="form-group">
+            <label for="surname">Surname</label>
+            <input type="text" class="form-control" id="surname" placeholder="Enter surname" th:field="*{surname}">
+        </div>
+        <div class="form-group">
+            <label for="born">Born</label>
+            <input type="date" class="form-control" id="born" placeholder="Enter born date" th:field="*{born}">
+        </div>
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" class="form-control" id="email" placeholder="Enter email" th:field="*{email}">
+        </div>
+        <div class="form-group">
+            <label for="phone">Phone</label>
+            <input type="text" class="form-control" id="phone" placeholder="Enter phone" th:field="*{phone}">
+        </div>
+        <div class="form-group">
+            <label for="city">City</label>
+            <input type="text" class="form-control" id="city" placeholder="Enter city" th:field="*{address.city}">
+        </div>
+        <div class="form-group">
+            <label for="street">Street</label>
+            <input type="text" class="form-control" id="street" placeholder="Enter street" th:field="*{address.street}">
+        </div>
+        <div class="form-group">
+            <label for="number">Number</label>
+            <input type="text" class="form-control" id="number" placeholder="Enter street number" th:field="*{address.number}">
+        </div>
+        <div class="form-group">
+            <label for="postalCode">Postal Code</label>
+            <input type="text" class="form-control" id="postalCode" placeholder="Enter postal code" th:field="*{address.postalCode}">
+        </div>
+
+        <div class="container">
+            <button type="submit" class="btn btn-primary">Submit</button>
+            <button type="reset" class="btn btn-primary">Reset</button>
+        </div>
+    </form>
+</div>
+</body>
+</html>
