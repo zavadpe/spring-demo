@@ -10,6 +10,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Collection;
+import java.util.List;
 
 @RestController
 @RequestMapping("/api/agents")
@@ -45,9 +46,13 @@ public class AgentRestController {
 
     @RequestMapping(method = RequestMethod.POST)
     ResponseEntity<?> addAgent(@RequestBody Agent agent) {
+        List<Agent> duplicates = agentRepository.findDuplicate(agent.getName(), agent.getAddress().getPostalCode());
+        if (duplicates.size() > 0) {
+            return new ResponseEntity<>("Trying to create duplicate Agent!", HttpStatus.CONFLICT);
+        }
         if ((agentRepository.save(agent)) != null) {
             return new ResponseEntity<>("Agent successfully created", HttpStatus.CREATED);
         }
-        return new ResponseEntity<>("Error creating Agent", HttpStatus.BAD_REQUEST);
+        return new ResponseEntity<>("Error creating agent!", HttpStatus.BAD_REQUEST);
     }
 }

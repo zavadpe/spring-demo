@@ -10,6 +10,9 @@
 <div th:replace="Home :: header"></div>
 <div class="container topMargin">
     <h2>Create new Agent</h2>
+    <div class="alert alert-danger" th:if="${duplicate}">
+        <strong th:text="${duplicate}"></strong>
+    </div>
     <form action="#" th:action="@{/agents/create}" th:object="${agent}" method="post">
         <div class="form-group">
             <label for="name">Name</label>

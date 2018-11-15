@@ -53,6 +53,22 @@
             <td>Postal Code</td>
             <td><span th:text="${lead.address?.postalCode}">Postal Code</span></td>
         </tr>
+        <tr>
+            <td>Distributed</td>
+            <td><span th:text="${lead.distributed}">Distributed</span></td>
+        </tr>
+        <tr th:if="${assigned_to_agents}">
+            <td>Assignet to agents</td>
+            <td>
+                <ul class="list-unstyled">
+                    <li th:each="agent : ${assigned_to_agents}">
+                        <a class="btn btn-link" th:href="'/agents/'+${agent.id}">
+                            <span th:text="${agent.name}">Agent Name</span>
+                        </a>
+                    </li>
+                </ul>
+            </td>
+        </tr>
         </tbody>
     </table>
 

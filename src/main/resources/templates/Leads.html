@@ -24,6 +24,7 @@
             <th> Street</th>
             <th> Number</th>
             <th> Postal Code</th>
+            <th> Distributed</th>
             <th colspan="2"> Actions</th>
         </tr>
         </thead>
@@ -42,6 +43,7 @@
             <td><span th:text="${lead.address?.street}"> Street </span></td>
             <td><span th:text="${lead.address?.number}"> Number </span></td>
             <td><span th:text="${lead.address?.postalCode}"> Postal Code </span></td>
+            <td><span th:text="${lead.distributed}"> Distributed </span></td>
             <td><a class="btn btn-link" th:href="'/leads/'+${lead.id}">Show</a></td>
             <td><a class="btn btn-link" th:href="'/leads/'+${lead.id}+'/edit'">Edit</a></td>
         </tr>

@@ -10,6 +10,9 @@
 <div th:replace="Home :: header"></div>
 <div class="container topMargin">
 <h2>Create new Lead</h2>
+    <div class="alert alert-danger" th:if="${duplicate}">
+        <strong th:text="${duplicate}"></strong>
+    </div>
     <form action="#" th:action="@{/leads/create}" th:object="${lead}" method="post">
         <div class="form-group">
             <label for="name">Name</label>

@@ -13,3 +13,7 @@
 .rightMargin {
     margin-right: 16px;
 }
+
+.error {
+    color: #ff0000;
+}

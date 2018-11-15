@@ -9,16 +9,21 @@ import java.sql.Date;
 @Entity
 public class Lead extends Person {
 
-    protected Boolean distributed = false;
+    protected boolean distributed;
 
     public Lead() {}
 
-    public Lead(String name, String surname, String email, String phone, Address address, Date born) {
+    public Lead(String name, String surname, String email, String phone, Address address, Date born, boolean distributed) {
         this.name = name;
         this.surname = surname;
         this.email = email;
         this.phone = phone;
         this.address = address;
         this.born = born;
+        this.distributed = distributed;
+    }
+
+    public Lead(String name, String surname, String email, String phone, Address address, Date born) {
+        this(name, surname, email, phone, address, born, false);
     }
 }
